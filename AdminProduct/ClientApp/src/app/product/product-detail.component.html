@@ -1,0 +1,57 @@
+<app-menu-bar></app-menu-bar>
+<h1 class="title">Products Detail</h1>
+<p *ngIf="!productDetails"><em>Loading...</em></p>
+
+<div class="table-style">
+  <div class="clearfix">
+    <div class="btn-style w-20 pull-right text-right">
+      <button mat-raised-button class="theme-color mr-20" (click)="addProduct()">Add Product</button>
+    </div>
+    <mat-form-field class="w-80 pull-left">
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+    </mat-form-field>
+  </div>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="image">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="w-20"> IMAGE </th>
+        <td mat-cell *matCellDef="let row" class="w-20">
+          <img  [src]="row.Url" height="50">
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="productCode">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="w-10"> CODE </th>
+        <td mat-cell *matCellDef="let row" class="w-10"> {{row.ProductCode}} </td>
+      </ng-container>
+      <ng-container matColumnDef="productName">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="w-20"> NAME </th>
+        <td mat-cell *matCellDef="let row" class="w-20"> {{row.ProductName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="w-20"> CATEGORY </th>
+        <td mat-cell *matCellDef="let row" class="w-20"> {{row.Category}} </td>
+      </ng-container>
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="w-10"> PRICE </th>
+        <td mat-cell *matCellDef="let row" class="w-10"> {{row.Price}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="w-10">  </th>
+        <td mat-cell *matCellDef="let row" class="w-10">
+          <a (click)="editProduct(row.Id)" class="app-icon edit-icon-color">
+            <i class="material-icons">edit</i>
+          </a>
+          <a (click)="deleteProduct(row.Id)" class="app-icon delete-icon-color">
+            <i class="material-icons">delete</i>
+          </a>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
+  </div>
+</div>

@@ -1,0 +1,387 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+html, body {
+  height: 100%
+}
+
+/*Button*/
+.btn-style {
+  float: right;
+}
+
+.btn-group {
+  float: right;
+}
+
+/*Icon*/
+/*Image*/
+
+/*Margin*/
+.mr-10 {
+  margin-right: 10px !important;
+}
+
+.mr-20 {
+  margin-right: 20px !important;
+}
+
+/*Width*/
+.w-10 {
+  width: 10%;
+}
+
+.w-15 {
+  width: 15%;
+}
+
+.w-20 {
+  width: 20%;
+}
+
+.w-25 {
+  width: 25%;
+}
+
+.w-30 {
+  width: 30%;
+}
+
+.w-40 {
+  width: 40%;
+}
+
+.w-80 {
+  width: 80%;
+}
+
+.pull-left {
+  float: left
+}
+
+.pull-right {
+  float: right
+}
+
+.text-right {
+  text-align: right;
+}
+
+.theme-color {
+  background-color: #c39406;
+  color: white
+}
+
+.font-color {
+  color: #c39406;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.invalid-feedback {
+  display: block;
+  margin-top: -15px;
+  margin-bottom: 20px;
+}
+
+
+
+.app-icon i {
+  font-size: 20px;
+  padding: 5px;
+}
+
+.app-icon a {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.edit-icon-color {
+  color: #c39406 !important
+}
+
+.delete-icon-color {
+  color: #dc3545 !important
+}
+
+table {
+  width: 100%;
+}
+
+.table-style {
+  width: 70%;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.dialog-header {
+  background-color: #c39406;
+  padding: 10px;
+  position: relative;
+}
+
+  .dialog-header h1 {
+    color: white;
+    margin-bottom: 0;
+    font-size: 18px;
+  }
+
+.mat-dialog-container {
+  padding: 0 !important;
+  overflow-x: hidden !important;
+}
+
+
+
+.mat-dialog-actions {
+  text-align: right;
+  justify-content: flex-end;
+  padding: 12px !important;
+}
+
+.delete-dialog.cdk-overlay-pane {
+  max-width: 320px !important;
+  height: 30vh !important;
+}
+
+.delete-dialog .mat-dialog-content {
+  text-align: center;
+  padding: 10px;
+}
+
+.edit-dialog.cdk-overlay-pane {
+  max-width: 520px !important;
+  height: 68vh !important;
+}
+
+.edit-dialog .mat-dialog-content {
+  text-align: left;
+}
+
+.edit-dialog .mat-dialog-content {
+  padding: 25px;
+}
+
+.edit-dialog form {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/*.edit-product-dialog.cdk-overlay-pane { max-width: 520px !important; height: 72vh !important; }
+.edit-product-dialog .mat-dialog-content { text-align: left; }*/
+/*.edit-product-dialog.cdk-overlay-pane*/
+
+.delete-dialog.cdk-overlay-pane, .edit-dialog.cdk-overlay-pane {
+  width: 100% !important;
+}
+
+.title {
+  font-size: 20px;
+  text-align: center;
+  color: #c39406;
+}
+
+.upload-img {
+  background: #efefef;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 14px;
+  width: 120px;
+  position: relative;
+}
+
+  .upload-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .upload-img i {
+    font-size: 20px;
+    line-height: 25px;
+  }
+
+.btn-close {
+  background-color: #c39406;
+  right: -10px;
+  position: absolute;
+  top: -10px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  color: white !important;
+  font-size: 14px !important;
+  text-align: center;
+  cursor: pointer;
+}
+
+.mat-form-field {
+  font-size: 14px;
+}
+
+.mat-table thead {
+  background-color: #c39406;
+}
+
+  .mat-table thead th {
+    color: white;
+    font-size: 14px;
+  }
+
+.dialog-cancel {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  color: white !important;
+  cursor: pointer;
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'), url(https://example.com/MaterialIcons-Regular.woff) format('woff'), url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.snack-bar {
+  background-color: #c39406;
+  color: white;
+}
+
+.example-header-image {
+  background-image: url('assets/product-img.png');
+  background-size: cover;
+}
+
+.mat-card {
+  width: 18% !important;
+  text-align: center !important;
+  margin-top: 30px !important;
+  padding: 10px !important;
+  height: 320px !important;
+  min-height: 320px;
+  vertical-align: middle;
+  max-width: 400px;
+  display: inline-block !important;
+  border: 2px solid #c39406;
+  color: #c39406 !important;
+  margin: 0 10px;
+}
+
+.mat-card-header .mat-card-subtitle {
+  color: #c39406 !important;
+}
+
+.mat-card-content .mat-card-subtitle {
+  color: #c39406 !important;
+}
+
+.mat-card-content p {
+  margin-top: 10px !important;
+}
+
+.mat-card-img img {
+  max-width: 150px;
+  max-height: 150px;
+  margin: 0 auto;
+  height: 100px;
+}
+
+.mat-card-avatar {
+  height: 50px !important;
+  width: 50px !important;
+  border: 1px solid #c39406 !important;
+}
+
+.mat-card-content, .mat-card-header .mat-card-title, .mat-card-subtitle {
+  width: 70%;
+  font-size: 14px !important;
+}
+
+.mat-card-header {
+  background-color: white;
+  color: #c39406;
+  justify-content: center;
+  text-align: center;
+}
+
+.qty-btn {
+  padding: 0 !important;
+  color: white;
+  background-color: #c39406;
+  border: 1px solid #c39406;
+  display: inline-block;
+  vertical-align: middle;
+  height: 20px;
+  width: 20px;
+  line-height: 5px;
+  text-align: center;
+}
+
+.qty-text {
+  margin: 5px;
+  width: 60px;
+  border: 1px solid #c39406;
+  border-radius: 3px;
+  display: inline-block;
+  vertical-align: middle;
+  height: 20px;
+  line-height: 5px;
+  text-align: center;
+}
+
+.add-cart {
+  background-color: #c39406;
+  color: white;
+  font-size: 14px;
+  margin: 5px auto;
+}
+
+  .add-cart i {
+    color: white;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    font-size: 22px;
+  }
+
+.cart-detail {
+  height: 25px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+/*.card-overlay { opacity: 0; position: absolute; left: 0; top: 0; bottom: 0; right: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; background-color: rgba(195, 148, 6, 0.72); }*/
+/*.mat-card:hover .card-overlay { opacity: 1; }*/
+.example-radio-group {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+.example-selected-value {
+  margin: 15px 0;
+}
+
+tr.mat-header-row {
+  height: 40px !important;
+}
+
+tr.mat-footer-row, tr.mat-row {
+  height: 40px !important;
+}

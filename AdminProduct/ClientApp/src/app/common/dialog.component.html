@@ -1,0 +1,135 @@
+<div class="dialog-header">
+  <h1 mat-dialog-title>{{data.title}}</h1>
+  <a (click)="cancel()" class="dialog-cancel">
+    <i class="material-icons">close</i>
+  </a>
+  <!--<button mat-raised-button class="font-color mat-raised-button mr-20" (click)="cancel()">Cancel</button>-->
+</div>
+
+<!-- User Detail -->
+<div *ngIf="data.type=='UserDetail'">
+  <mat-dialog-content class="mat-typography">
+    <form name="form" (ngSubmit)="f.form.valid && saveUser()" #f="ngForm" [mustMatch]="['password', 'confirmPassword']" novalidate>
+      <mat-form-field class="example-full-width">
+        <input type="text" matInput placeholder="First Name" name="firstName" [(ngModel)]="details.FirstName" #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required />
+      </mat-form-field>
+      <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+        <div *ngIf="firstName.errors.required">First Name is required</div>
+      </div>
+      <mat-form-field class="example-full-width">
+        <input type="text" matInput placeholder="Last Name" name="lastName" [(ngModel)]="details.LastName" #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }" required />
+      </mat-form-field>
+      <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
+        <div *ngIf="lastName.errors.required">Last Name is required</div>
+      </div>
+      <mat-form-field class="example-full-width">
+        <input type="text" matInput placeholder="Email" name="email" [(ngModel)]="details.Email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email />
+      </mat-form-field>
+      <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+        <div *ngIf="email.errors.required">Email is required</div>
+        <div *ngIf="email.errors.email">Email must be a valid email address</div>
+      </div>
+      <mat-form-field class="example-full-width">
+        <input type="password" matInput placeholder="Password" name="password" [(ngModel)]="details.Password"
+               #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required minlength="6"
+               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$" />
+      </mat-form-field>
+      <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+        <div *ngIf="password.errors.required">Password is required</div>
+        <div *ngIf="password.errors.pattern">Password must contain one special charecter, one latter and one digit</div>
+        <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+      </div>
+      <mat-form-field class="example-full-width">
+        <input type="password" matInput placeholder="Confirm Password" name="confirmPassword" [(ngModel)]="details.ConfirmPassword" #confirmPassword="ngModel" [ngClass]="{ 'is-invalid': f.submitted && confirmPassword.invalid }" required
+               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$" />
+      </mat-form-field>
+      <div *ngIf="f.submitted && confirmPassword.invalid" class="invalid-feedback">
+        <div *ngIf="confirmPassword.errors.required">Confirm Password is required</div>
+        <div *ngIf="confirmPassword.errors.pattern">Password must contain one special charecter, one latter and one digit</div>
+        <div *ngIf="confirmPassword.errors.mustMatch">Passwords must match</div>
+      </div>
+      <div class="form-group btn-group">
+        <button mat-raised-button class="font-color mat-raised-button mr-20" (click)="cancel()">Cancel</button>
+        <button mat-raised-button class="theme-color">Save</button>
+      </div>
+    </form>
+  </mat-dialog-content>
+</div>
+
+<!-- Product Detail -->
+<div *ngIf="data.type=='ProductDetail'">
+  <mat-dialog-content class="mat-typography">
+    <form name="form" (ngSubmit)="f.form.valid" #f="ngForm" novalidate>
+      <mat-form-field class="example-full-width">
+        <input type="text" matInput placeholder="Product Code" name="productCode" [(ngModel)]="details.ProductCode" #productCode="ngModel" [ngClass]="{ 'is-invalid': f.submitted && productCode.invalid }" required />
+      </mat-form-field>
+      <div *ngIf="f.submitted && productCode.invalid" class="invalid-feedback">
+        <div *ngIf="productCode.errors.required">Product Code is required</div>
+      </div>
+      <mat-form-field class="example-full-width">
+        <input type="text" matInput placeholder="Product Name" name="productName" [(ngModel)]="details.ProductName" #productName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && productName.invalid }" required />
+      </mat-form-field>
+      <div *ngIf="f.submitted && productName.invalid" class="invalid-feedback">
+        <div *ngIf="productName.errors.required">Product Name is required</div>
+      </div>
+
+      <mat-form-field class="example-full-width">
+        <mat-select placeholder="Select Category" name="category" [(ngModel)]="details.Category" #category="ngModel" [ngClass]="{ 'is-invalid': f.submitted && category.invalid }" required>
+          <mat-option value="Baby">Baby</mat-option>
+          <mat-option value="Books">Books</mat-option>
+          <mat-option value="Watches">Watches</mat-option>
+          <mat-option value="Beauty">Beauty</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div *ngIf="f.submitted && category.invalid" class="invalid-feedback">
+        <div *ngIf="category.errors.required">Category is required</div>
+      </div>
+
+      <mat-form-field class="example-full-width">
+        <input type="text" matInput placeholder="Price" name="price" [(ngModel)]="details.Price" #price="ngModel" [ngClass]="{ 'is-invalid': f.submitted && price.invalid }" required />
+      </mat-form-field>
+      <div *ngIf="f.submitted && price.invalid" class="invalid-feedback">
+        <div *ngIf="price.errors.required">Price is required</div>
+      </div>
+
+      <mat-form-field class="example-full-width">
+        <input type="text" matInput placeholder="Quantity" name="quantity" [(ngModel)]="details.Quantity" #quantity="ngModel" [ngClass]="{ 'is-invalid': f.submitted && quantity.invalid }" required />
+      </mat-form-field>
+      <div *ngIf="f.submitted && quantity.invalid" class="invalid-feedback">
+        <div *ngIf="quantity.errors.required">Quantity is required</div>
+      </div>
+      <div class="upload-img">
+        <a class="btn-close" *ngIf="details.url!=''" (click)=removeImage()>
+          <i class="material-icons">close</i>
+        </a>
+        <img [src]="details.Url" *ngIf="details.Url!=''">
+        <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)" style="display:none;" required>
+        <button mat-raised-button class="theme-color" *ngIf="details.Url==''" (click)="file.click()">Upload</button>
+      </div>
+
+      <!--<div>
+        <input type="file" (change)="createFormData($event)">
+      </div>
+      <button (click)="upload()">Upload</button>-->
+
+      <div class="form-group btn-group">
+        <button mat-raised-button class="font-color mat-raised-button mr-20" (click)="cancel()">Cancel</button>
+        <button mat-raised-button class="theme-color" (click)="saveProduct()">Save</button>
+      </div>
+
+    </form>
+  </mat-dialog-content>
+</div>
+
+<!-- Delete Confirmation Dialog -->
+<div *ngIf="data.type=='DeleteConfirmation'">
+  <mat-dialog-content class="mat-typography">
+    Are you sure you want to delete this item?
+  </mat-dialog-content>
+  <div mat-dialog-actions>
+    <button mat-button (click)="cancel()" class="font-color mat-raised-button">No Thanks</button>
+    <button mat-button (click)="delete('UserDetail')" *ngIf="data.deleteType=='UserDetail'" class="theme-color" cdkFocusInitial>Yes</button>
+    <button mat-button (click)="delete('ProductDetail')" *ngIf="data.deleteType=='ProductDetail'" class="theme-color" cdkFocusInitial>Yes</button>
+    <button mat-button (click)="delete('CartDetail')" *ngIf="data.deleteType=='CartDetail'" class="theme-color" cdkFocusInitial>Yes</button>
+  </div>
+</div>

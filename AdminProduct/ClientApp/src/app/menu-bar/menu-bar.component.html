@@ -1,0 +1,35 @@
+<header>
+  <nav class='theme-color navbar navbar-expand-sm navbar-toggleable-sm navbar-light mb-3'>
+    <div class="container">
+      <a class="navbar-brand" [routerLink]='["/Home"]'>User Management</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-label="Toggle navigation"
+              [attr.aria-expanded]="isExpanded" (click)="toggle()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+
+      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" [ngClass]='{"show": isExpanded}'>
+        <ul class="navbar-nav flex-grow">
+
+          <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+            <a class="nav-link " [routerLink]=' ["/Home"]'>Home</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]='["link-active"]'>
+            <a class="nav-link " [routerLink]='["/Users"]'>Users</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]='["link-active"]'>
+            <a class="nav-link " [routerLink]='["/Products"]'>Products</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+            <a class="nav-link " [routerLink]=' ["/Cart"]'>
+              <img class="cart-detail" src="../../assets/shopping-cart-empty.svg" />
+            </a>
+          </li>
+          <li class="nav-item" [routerLinkActive]='["link-active"]'>
+            <a class="nav-link " [routerLink]='["/Logout"]'>Logout</a>
+          </li>          
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

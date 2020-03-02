@@ -1,0 +1,35 @@
+<app-menu-bar></app-menu-bar>
+<ng-image-slider [images]="imageObject" #nav></ng-image-slider>
+
+<mat-card class="mat-card-img" *ngFor="let productDetail of productDetails">
+  <!--<div class="card-overlay">
+    <button class="add-cart btn btn-default" (click)="addCart(productDetail)">
+      <i class="material-icons">add_shopping_cart</i>Add Cart
+    </button>
+  </div>-->
+  <mat-card-header>
+    <!--  <div mat-card-avatar class="example-header-image"></div>-->
+
+    <mat-card-title >
+      {{productDetail.ProductName}}
+    </mat-card-title>
+  </mat-card-header>
+  <img mat-card-image src="{{productDetail.Url}}" alt="Photo">
+  <mat-card-content>
+    <p>
+      Price:
+      {{productDetail.Price}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <div>
+      <button class="qty-btn btn btn-default" (click)="minus(productDetail.Id)">-</button>
+      <input [(ngModel)]="productDetail.Quantity" class="qty-text" type="number" name="Quantity" />
+      <button class="qty-btn btn btn-default" (click)="plus(productDetail.Id)">+</button>
+    </div>
+    <button class="add-cart btn btn-default" (click)="addCart(productDetail)">
+      <i class="material-icons">add_shopping_cart</i>Add Cart
+    </button>
+
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,26 @@
+<div class="bg-style">
+  <h2 class="font-color">Login</h2>
+  <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Email" type="text" name="email" [(ngModel)]="userData.Email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email />
+    </mat-form-field>
+    <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+      <div *ngIf="email.errors.required">Email is required</div>
+      <div *ngIf="email.errors.email">Email must be a valid email address</div>
+    </div>
+
+    <mat-form-field class="example-full-width">
+      <input matInput type="password" class="" name="password" placeholder="Password" [(ngModel)]="userData.Password" #password="ngModel"
+             [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required minlength="6" />
+
+    </mat-form-field>
+    <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+      <div *ngIf="password.errors.required">Password is required</div>
+      <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+    </div>
+    <div class="form-group">
+      <button mat-raised-button class="theme-color mr-20">Login</button>
+      <button mat-raised-button class="font-color" (click)="openUserRegistration()">Register</button>
+    </div>
+  </form>
+</div>
